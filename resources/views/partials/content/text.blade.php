@@ -1,0 +1,1 @@
+<div class="text-wrapper cap-width">{!! get_sub_field('text') !!}</div>

@@ -1,0 +1,18 @@
+/** Import Bootstrap functions */
+@import '~bootstrap/scss/functions';
+
+$theme-colors: (
+	primary: #525ddc,
+);
+
+/** Bootstrap navbar fix (https://git.io/fADqW) */
+$navbar-dark-toggler-icon-bg: none;
+$navbar-light-toggler-icon-bg: none;
+
+$grey: #999;
+
+$lb1: #7c7c7c;
+
+$trans1: 0.3s cubic-bezier(0.61, 0.34, 0.26, 0.79);
+$trans2: 1s cubic-bezier(0.61, 0.34, 0.26, 0.79);
+$trans3: 0.3s cubic-bezier(0.61, 0.34, 0.26, 0.79);

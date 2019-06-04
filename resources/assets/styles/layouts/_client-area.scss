@@ -1,0 +1,81 @@
+.client-area {
+    margin-left: auto;
+    width: 100%;
+    padding: 15px;
+    color: white;
+
+    @include media-breakpoint-up(lg) {
+        max-width: 60%;
+        padding: 30px;
+    }
+
+    @include media-breakpoint-up(xl) {
+        max-width: 60%;
+    }
+
+    @media (min-width: 1400px) {
+        max-width: 55%;
+    }
+
+    .wrapper-password {
+        height: calc(100vh - 60px);
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+
+        h1 {
+            font-size: 25px;
+        }
+
+        form {
+            p:nth-child(1) {
+                display: none;
+            }
+
+            label {
+                font-size: 0;
+                width: 60%;
+                margin-right: 15px;
+
+                input {
+                    color: white;
+                    background: none;
+                    border-bottom: solid 1px white;
+                    width: 100% !important;
+                    padding: 0;
+                }
+            }
+        }
+    }
+}
+
+body.single-client_area {
+    background: black;
+
+    .logo {
+        color: white;
+    }
+
+    #menu-main-menu {
+        .menu-item {
+            color: white;
+        }
+    }
+
+    .contact-item,
+    .contact-item-mob {
+        color: white;
+    }
+
+    .mob-bar {
+        background: black;
+
+        svg g {
+            stroke: white;
+        }
+    }
+
+    header {
+        background: black;
+    }
+}

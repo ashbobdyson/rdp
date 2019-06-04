@@ -1,0 +1,35 @@
+@font-face {
+    font-family: 'Univers';
+    src: url('../fonts/UniversNextW01-Light.eot');
+    src:
+        url('../fonts/UniversNextW01-Light.eot?#iefix') format('embedded-opentype'),
+        url('../fonts/UniversNextW01-Light.woff2') format('woff2'),
+        url('../fonts/UniversNextW01-Light.woff') format('woff'),
+        url('../fonts/UniversNextW01-Light.ttf') format('truetype');
+    font-weight: 400;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'UniversLight';
+    src: url('../fonts/UniversLTW01-45Light.eot');
+    src:
+        url('../fonts/UniversLTW01-45Light.eot?#iefix') format('embedded-opentype'),
+        url('../fonts/UniversLTW01-45Light.woff2') format('woff2'),
+        url('../fonts/UniversLTW01-45Light.woff') format('woff');
+    font-weight: 400;
+    font-style: normal;
+}
+
+@font-face {
+	font-family: 'GeosansLight';
+	src: url('../fonts/GeosansLight.eot');
+    src:
+        url('../fonts/GeosansLight.eot?#iefix') format('embedded-opentype'),
+		url('../fonts/GeosansLight.woff2') format('woff2'),
+		url('../fonts/GeosansLight.woff') format('woff'),
+		url('../fonts/GeosansLight.ttf') format('truetype'),
+		url('../fonts/GeosansLight.svg#GeosansLight') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}

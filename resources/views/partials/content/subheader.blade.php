@@ -1,0 +1,1 @@
+<h2 class="cap-width">{{ get_sub_field('text') }}</h2>

@@ -2,46 +2,49 @@
 import 'jquery';
 
 // Import everything from autoload
-import "./autoload/**/*"
+import './autoload/**/*';
 
 // import local dependencies
 import Router from './util/Router';
 import common from './routes/common';
 import home from './routes/home';
 import aboutUs from './routes/about';
-import Barba from "barba.js";
-import Masonry from "masonry-layout"; //eslint-disable-line
+import Barba from 'barba.js';
+import Masonry from 'masonry-layout'; //eslint-disable-line
 
 /** Populate Router instance with DOM routes */
 const routes = new Router({
-  // All pages
-  common,
-  // Home page
-  home,
-  // About Us page, note the change from about-us to aboutUs.
-  aboutUs,
+	// All pages
+	common,
+	// Home page
+	home,
+	// About Us page, note the change from about-us to aboutUs.
+	aboutUs,
 });
 
-$('body').on('click', '.invert-theme', function(){
-	$('body').toggleClass('alt-theme')
-})
+$('body').on('click', '.invert-theme', function() {
+	$('body').toggleClass('alt-theme');
+});
 
-$('body').on('click', '.lightbox-btn', function(){
-	$('body').addClass('lightbox-open')
-	var src = $(this).parent().data('lightbox')
-	console.log(src)
-	$('.lightbox-wrapper').find('img').attr('src', src)
-})
+$('body').on('click', '.lightbox-btn', function() {
+	$('body').addClass('lightbox-open');
+	var src = $(this)
+		.parent()
+		.data('lightbox');
+	$('.lightbox-wrapper')
+		.find('img')
+		.attr('src', src);
+});
 
-$('body').on('click', '.lightbox-close', function(){
-	$('body').removeClass('lightbox-open')
-})
+$('body').on('click', '.lightbox-close', function() {
+	$('body').removeClass('lightbox-open');
+});
 
 // window.oncontextmenu = function () {
 // 	return false;
 //  }
-//  document.onkeydown = function (e) { 
-// 	if (window.event.keyCode == 123 || window.event.keyCode == 18 ||  e.button==2)    
+//  document.onkeydown = function (e) {
+// 	if (window.event.keyCode == 123 || window.event.keyCode == 18 ||  e.button==2)
 // 	return false;
 //  }
 
@@ -51,18 +54,18 @@ var bodyClasses;
 var anchor;
 var slideAndFade = Barba.BaseTransition.extend({
 	start: function() {
-		$("body").addClass("transition-out");
+		$('body').addClass('transition-out');
 		Promise.all([this.newContainerLoading, this.slideUp()]).then(
 			this.finish.bind(this)
 		);
 	},
 	slideUp: function() {
 		return new Promise(function(resolve) {
-			$("#transition")
-				.removeClass("fade-in")
-        .addClass("slide-up");
-        $("body").addClass("transition-out");
-        $("body").removeClass("loaded");
+			$('#transition')
+				.removeClass('fade-in')
+				.addClass('slide-up');
+			$('body').addClass('transition-out');
+			$('body').removeClass('loaded');
 			setTimeout(function() {
 				window.scrollTo(0, 0);
 				resolve();
@@ -72,66 +75,66 @@ var slideAndFade = Barba.BaseTransition.extend({
 	finish: function() {
 		updateNavMenu(this.newContainer.baseURI);
 		// doMasonry()
-		$("body").attr("class", bodyClasses + " transition-out");
+		$('body').attr('class', bodyClasses + ' transition-out');
 		routes.loadEvents();
 
 		if (anchor) {
 			// window.scrollTo(0, $('#'+anchor).offset().top)
 			setTimeout(() => {
-				$("html, body").animate(
+				$('html, body').animate(
 					{
-						scrollTop: $("#" + anchor).offset().top,
+						scrollTop: $('#' + anchor).offset().top,
 					},
 					0
 				);
 			}, 500);
 			setTimeout(() => {
-				$("#transition")
-					.addClass("fade-in")
-          .removeClass("slide-up");
-          $("body").addClass("transition-in");
+				$('#transition')
+					.addClass('fade-in')
+					.removeClass('slide-up');
+				$('body').addClass('transition-in');
 			}, 600);
 			setTimeout(() => {
-				$("body").removeClass("transition-in");
+				$('body').removeClass('transition-in');
 			}, 1100);
 		} else {
-			$("#transition")
-				.addClass("fade-in")
-        .removeClass("slide-up");
-        $("body").addClass("transition-in");
-        $("body").removeClass("transition-out");
-        // debugger; //eslint-disable-line
+			$('#transition')
+				.addClass('fade-in')
+				.removeClass('slide-up');
+			$('body').addClass('transition-in');
+			$('body').removeClass('transition-out');
+			// debugger; //eslint-disable-line
 			setTimeout(() => {
-        $("body").removeClass("transition-in");
-        $("body").addClass("loaded");
-        // debugger; //eslint-disable-line
+				$('body').removeClass('transition-in');
+				$('body').addClass('loaded');
+				// debugger; //eslint-disable-line
 			}, 1000);
 		}
 		this.done();
 	},
 });
 
-$('body').on('click', '.mob-toggle', function(){
-	$('body').toggleClass('nav-open')
-  })
+$('body').on('click', '.mob-toggle', function() {
+	$('body').toggleClass('nav-open');
+});
 
 //Update the nav current item
 function updateNavMenu(uri) {
 	if (uri) {
-		var $nav = $(".inner-nav");
-		$nav.children(".current-menu-item").removeClass("current-menu-item");
-		if (uri.indexOf("portfolio") > 0) {
-			$nav.children(".nav-work").addClass("current-menu-item");
-		} else if (uri.indexOf("press") > 0) {
-			$nav.children(".nav-press").addClass("current-menu-item");
-		} else if (uri.indexOf("shop") > 0) {
-			$nav.children(".nav-shop").addClass("current-menu-item");
-		} else if (uri.indexOf("cart") > 0) {
-			$nav.children(".nav-shop").addClass("current-menu-item");
-		} else if (uri.indexOf("checkout") > 0) {
-			$nav.children(".nav-shop").addClass("current-menu-item");
-		} else if (uri.indexOf("about") > 0) {
-			$nav.children(".nav-about").addClass("current-menu-item");
+		var $nav = $('.inner-nav');
+		$nav.children('.current-menu-item').removeClass('current-menu-item');
+		if (uri.indexOf('portfolio') > 0) {
+			$nav.children('.nav-work').addClass('current-menu-item');
+		} else if (uri.indexOf('press') > 0) {
+			$nav.children('.nav-press').addClass('current-menu-item');
+		} else if (uri.indexOf('shop') > 0) {
+			$nav.children('.nav-shop').addClass('current-menu-item');
+		} else if (uri.indexOf('cart') > 0) {
+			$nav.children('.nav-shop').addClass('current-menu-item');
+		} else if (uri.indexOf('checkout') > 0) {
+			$nav.children('.nav-shop').addClass('current-menu-item');
+		} else if (uri.indexOf('about') > 0) {
+			$nav.children('.nav-about').addClass('current-menu-item');
 		}
 	}
 }
@@ -152,7 +155,7 @@ function updateNavMenu(uri) {
 // 	}
 // })
 
-// function doMasonry() {  
+// function doMasonry() {
 // 	if( $('.m-grid').length > 0 ) {
 // 	grid = document.querySelector(".m-grid");
 // 	/* eslint-disable */
@@ -173,16 +176,16 @@ function updateNavMenu(uri) {
 Barba.Pjax.getTransition = function() {
 	return slideAndFade;
 };
-Barba.Pjax.Dom.wrapperId = "wrapper";
-Barba.Pjax.Dom.containerClass = "content";
+Barba.Pjax.Dom.wrapperId = 'wrapper';
+Barba.Pjax.Dom.containerClass = 'content';
 
-Barba.Dispatcher.on("initStateChange", function() {
+Barba.Dispatcher.on('initStateChange', function() {
 	// if (typeof ga === "function") {
 	// 	ga("send", "pageview", location.pathname);
 	// }
 });
 
-Barba.Dispatcher.on("linkClicked", function(e) {
+Barba.Dispatcher.on('linkClicked', function(e) {
 	if (e.dataset.anchor) {
 		anchor = e.dataset.anchor;
 	} else {
@@ -196,12 +199,12 @@ var originalFn = Barba.Pjax.Dom.parseResponse;
 Barba.Pjax.Dom.parseResponse = function(response) {
 	response = response.replace(
 		/(<\/?)body( .+?)?>/gi,
-		"$1notbody$2>",
+		'$1notbody$2>',
 		response
 	);
 	bodyClasses = $(response)
-		.filter("notbody")
-		.attr("class");
+		.filter('notbody')
+		.attr('class');
 	return originalFn.apply(Barba.Pjax.Dom, arguments);
 };
 

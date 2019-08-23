@@ -1,29 +1,29 @@
 body {
-    font-family: 'UniversLight', sans-serif;
-    -webkit-font-smoothing: antialiased;
-    letter-spacing: 0.3;
+	font-family: 'UniversLight', sans-serif;
+	-webkit-font-smoothing: antialiased;
+	letter-spacing: 0.3;
 
-    .content {
-        // transform: translateY(0); //don't remove this!
-        transition: transform $trans1, opacity $trans1;
-        opacity: 1;
-    }
+	.content {
+		// transform: translateY(0); //don't remove this!
+		transition: transform $trans1, opacity $trans1;
+		opacity: 1;
+	}
 
-    &.alt-theme {
-        background: $grey;
+	&.alt-theme {
+		background: $grey;
 
-        .menu-block {
-            background: grey;
-        }
+		.menu-block {
+			background: grey;
+		}
 
-        .generic-page .text-wrapper p,
-        .gallery-wrap .text h2,
-        .work-wrap .text h2,
-        .gallery-wrap .text p,
-        .work-wrap .text p {
-            color: white;
-        }
-    }
+		.generic-page .text-wrapper p,
+		.gallery-wrap .text h2,
+		.work-wrap .text h2,
+		.gallery-wrap .text p,
+		.work-wrap .text p {
+			color: white;
+		}
+	}
 }
 
 h1,
@@ -31,80 +31,81 @@ h2,
 h3,
 h4,
 strong {
-    font-weight: 400;
+	font-weight: 400;
 }
 
 a {
-    text-decoration: none !important;
-    color: inherit !important;
+	text-decoration: none !important;
+	color: inherit !important;
 }
 
 .logo {
-    font-family: 'GeosansLight';
-    position: fixed;
-    top: 35px;
-    left: 35px;
-    z-index: 21;
-    font-size: 40px;
-    line-height: 44px;
+	font-family: 'GeosansLight';
+	// font-weight: bold;
+	position: fixed;
+	top: 35px;
+	left: 35px;
+	z-index: 21;
+	font-size: 40px;
+	line-height: 44px;
 
-    @include media-breakpoint-up(lg) {
-        top: 50px;
-        left: 50px;
-    }
+	@include media-breakpoint-up(lg) {
+		top: 50px;
+		left: 50px;
+	}
 
-    a {
-        margin: 0;
-        display: flex;
-        align-items: center;
-        max-width: calc(100vw - 70px);
-        flex-wrap: wrap;
-    }
+	a {
+		margin: 0;
+		display: flex;
+		align-items: center;
+		max-width: calc(100vw - 70px);
+		flex-wrap: wrap;
+	}
 
-    .photography {
-        display: flex;
-    }
+	.photography {
+		display: flex;
+	}
 
-    .collapsable {
-        max-width: 500px;
-        overflow: hidden;
+	.collapsable {
+		max-width: 500px;
+		overflow: hidden;
 
-        @include media-breakpoint-up(md) {
-            transition: max-width $trans3 1s;
-        }
-    }
+		@include media-breakpoint-up(md) {
+			transition: max-width $trans3 1s;
+		}
+	}
 
-    &.loaded {
-        .collapsable {
-            max-width: 0;
-            display: inline-block;
-        }
-    }
+	&.loaded {
+		.collapsable {
+			max-width: 0;
+			display: inline-block;
+		}
+	}
 }
 
 .transition-in .content {
-    transform: translateY(100px);
-    opacity: 0;
+	transform: translateY(100px);
+	opacity: 0;
 }
 
 .transition-out .content {
-    transform: translateY(100px);
-    opacity: 0;
+	transform: translateY(100px);
+	opacity: 0;
 }
 
 input,
 button,
 textarea {
-    outline: none !important;
+	outline: none !important;
 }
 
 .cap-width {
-    @include media-breakpoint-up(lg) {
-        max-width: 50vw;
-        margin-left: auto !important;
-    }
+	@include media-breakpoint-up(lg) {
+		max-width: 50vw;
+		margin-left: auto !important;
+	}
 }
 
 #fb-root {
-    display: none !important;
+	display: none !important;
 }

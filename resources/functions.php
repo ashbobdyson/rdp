@@ -106,6 +106,8 @@ function rdp_theme_setup()
 }
 
 function create_srcset($id) {
+	$attachment = get_post($id);
+    $alt_text = wp_get_attachment_caption($id);
     $html = 'srcset="';
     $html .= wp_get_attachment_image_src($id, 'md')[0].' 320w,';
     $html .= wp_get_attachment_image_src($id, 'md')[0].' 540w,';
@@ -113,9 +115,12 @@ function create_srcset($id) {
     $html .= wp_get_attachment_image_src($id, 'lg')[0].' 1200w,';
     $html .= wp_get_attachment_image_src($id, 'xl')[0].'  1400w,';
     $html .= wp_get_attachment_image_src($id, 'xxxl')[0].' 3840w" ';
-    $html .= 'sizes="(max-width: 320px) 320px, (max-width: 540px) 540px, (max-width: 768px) 768px, (max-width: 1200px) 1200px, (max-width: 1400px) 1400px, 3840px"';
+	$html .= 'sizes="(max-width: 320px) 320px, (max-width: 540px) 540px, (max-width: 768px) 768px, (max-width: 1200px) 1200px, (max-width: 1400px) 1400px, 3840px"';
+	$html .= ' title="'.get_the_title($id).'" alt="'.$alt_text.'"';
     return $html;
 }
+
+
 
 function create_srcset_bg($id, $selector) {
     $html = '<style>';
